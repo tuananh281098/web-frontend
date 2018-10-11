@@ -8,22 +8,32 @@ class FirstLogin extends Component{
 	}
 	render(){
 		return(
-			<div style = {{backgroundImage: `url(${Background})`, width: '100%', height:'100%' }}>
-						<p style={{
+			<div style = {{
+				backgroundImage: `url(${Background})`,
+				height:'100%',
+				backgroundSize: 'cover',
+            	overflow: 'hidden',
+            }}>
+				<div style = {{
+					marginLeft:'20%',
+					marginRight:'20%',
+				}}>
+					<div style = {{
 						color:'white',
+						fontSize:'300%',
 						textAlign:'center',
-						fontSize:'80px',
-						}}>Find your inspiration.</p>
+						paddingTop:'20%',
+					}}>lưu trữ khoảnh khắc cuộc sống</div>
 					<Button style = {{
 						backgroundColor: 'white',
 						width:'15%',
-						height:'12%',
-						fontSize:'40px',
-          	marginLeft: '43%',
-          	marginTop:'15%',
-          	}} onClick={this.login}>
-            Sign in
-          </Button>
+						height:'15%',
+	          			marginLeft: '43%',
+	          			marginTop:'20%',
+	          		}} onClick={this.login}>
+	            	<h1> Sign in </h1>
+	          		</Button>
+          		</div>
 			</div>
 		);
 	}
