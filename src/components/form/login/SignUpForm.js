@@ -7,10 +7,10 @@ class SignUpForm extends Component {
         super();
 
         this.state = {
-          email: '',
-          password: '',
-          firstName: '',
-          lastName: '',
+          email: null,
+          password: null,
+          firstName: null,
+          lastName: null,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -22,16 +22,15 @@ class SignUpForm extends Component {
       var headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
       };
-      var data = {
-        email: this.state.email,
-        password: this.state.password, 
-        firstName: this.state.firstName, 
-        lastName: this.state.lastName,
+      let data = {
+        "email": this.state.email,
+        "password": this.state.password, 
+        "firstName": this.state.firstName, 
+        "lastName": this.state.lastName,
       }
-      await axios.post('http://192.168.0.101:3000/api/signup', {headers: headers}, {params: data})
+      await axios.post('http://192.168.0.101:3000/api/signup', data)
       .then(function (response) {
         console.log(response);
-        localStorage.setItem('token',response.data.token);
       })
       .catch(function (error) {
         console.log(error);
@@ -99,6 +98,16 @@ class SignUpForm extends Component {
                   name="name" 
                   value={this.state.lastName} 
                   onChange={this.inputLastName} />
+              </div>
+              <div className="FormField">
+                <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  className="FormField__Input" 
+                  placeholder="Enter your email" 
+                  name="email" value={this.state.email} 
+                  onChange={this.inputEmail} />
               </div>
               <div className="FormField">
                 <label className="FormField__Label" htmlFor="password">Password</label>
